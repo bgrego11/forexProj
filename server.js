@@ -1,6 +1,7 @@
 var express = require("express");
 var moment = require("moment");
 var bodyParser = require("body-parser");
+var path = require("path");
 var oxr = require('open-exchange-rates'),
     fx = require('money');
 oxr.set({ app_id: 'b3e3d3097383466fba640039d4f7ba4e' })
@@ -21,7 +22,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 //converts from any amt of ccy to another 
 //to get 100 EUR to USD get localhost:8080/100/EUR/USD
-app.get('/:amt/:sell/:buy',function(req,res){
+app.get('/new/:amt/:sell/:buy',function(req,res){
         var amt = req.params.amt;
         var sell = req.params.sell;
         var buy = req.params.buy;
@@ -34,6 +35,10 @@ app.get('/:amt/:sell/:buy',function(req,res){
             });
             
  })
+
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/index.html"));
+  });
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
