@@ -8,7 +8,8 @@ var Login  = React.createClass({
   getInitialState: function() {
     return {
       user: '',
-      password: ''
+      password: '',
+      email: ''
     };
   },
   render: function() {
@@ -24,13 +25,9 @@ var Login  = React.createClass({
         <label for="">Password</label>
         <input value={this.state.password} onChange={this.updatePw} type="Password" className="form-control" id="" placeholder="****" />
     </div>
-    
-  
-
-    
-
-    <button type="submit" id="logBtn" onClick={this.login} className="btn btn-success">Submit</button>
-</form>
+    <button type="submit" id="logBtn" onClick={this.login} className="btn btn-success">Login</button>
+    <button type="submit" id="logBtn" onClick={this.create} className="btn btn-success">Create</button>
+    </form>
 </div>
 
 
