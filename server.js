@@ -62,20 +62,21 @@ app.use(express.static("./public"));
   app.post("/user/create", function(req, res){
     var data = req.body;
     user = new User({
-      username: data.username,
+      username: data.user,
       email: data.email,
       hashPass: data.password
     });
 
-    user.save( function(err,res){
+    user.save( function(err,resp){
         if (err) {
-          console.log("cannot save");
+          console.log(err);
         }
         else {
-          res.json(user);
+          console.log("saved");
+          
         }
     })
-
+    res.send(user);
 
   });
 
