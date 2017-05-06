@@ -22,15 +22,8 @@ class Main extends React.Component {
   <div><Header />
   <div>
   <div className="container col-sm-10 col-md-5 col-lg-5">
-    <Login /> 
-    <Demo />
+    {this.props.children}
   </div>
-  <div className="container col-sm-10 col-md-8 col-lg-8">
-
-          {/* This code will dump the correct Child Component */}
-          {this.props.children}
-
-        </div>
   <Footer />
   </div>
   </div>

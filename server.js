@@ -67,16 +67,18 @@ app.use(express.static("./public"));
       hashPass: data.password
     });
 
+
     user.save( function(err,resp){
         if (err) {
           console.log(err);
+          res.send(err)
         }
         else {
           console.log("saved");
-          
+          res.send(user);
         }
     })
-    res.send(user);
+    
 
   });
 

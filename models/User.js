@@ -6,11 +6,13 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   username: {
     type: String,
-    required: "username is Required",
+    required: true,
+    unique: true
   },
   email: {
       type: String,
-      required: "email required"
+      required: "email required",
+      match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
   },
   hashPass: {
     type: String,

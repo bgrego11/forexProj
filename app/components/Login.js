@@ -16,7 +16,7 @@ var Login  = React.createClass({
   render: function() {
     return (
     
-      <div id="login">
+      <div ref="login" id="login">
       <form action="" id="logDiv" method="POST" className="panel panel-default animated bounceInLeft" role="form">
     <legend>Login</legend>
 
@@ -55,8 +55,10 @@ var Login  = React.createClass({
   create: function(e) {
     e.preventDefault();
    var data = this.state;
+   var self = this;
     axios.post("/user/create",data).then(function(res) {
-      console.log(res)
+      console.log(res);
+  
     })
   }
 

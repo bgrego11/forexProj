@@ -11,7 +11,7 @@ var Header = React.createClass({
     <a className="navbar-brand" href="#">Title</a>
     <ul className="nav navbar-nav">
         <li className="active">
-            <a href="#">Home</a>
+            <a href="#/login">Login</a>
         </li>
         <li>
             <a href="#">Link</a>
